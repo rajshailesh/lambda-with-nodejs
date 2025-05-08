@@ -19,6 +19,7 @@ pipeline {
     post {
         always {
             // You can add steps here to archive artifacts or send notifications
+            echo 'i am in post'
         }
     }
 }
