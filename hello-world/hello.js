@@ -7,15 +7,12 @@
 
 module.exports.handler = async (event) => {
   console.log('Event: ', event);
-  let responseMessage = 'Hello, World!';
-
-  return {
-    statusCode: 200,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      message: responseMessage,
-    }),
+  if (event.name === 'error') {
+    throw new Error('Simulated error');
   }
+  const response = {
+    statusCode: 200,
+    body: JSON.stringify({ message: `Hello, ${event.name || 'World'}!` }),
+  };
+  return response;
 }
