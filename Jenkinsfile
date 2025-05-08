@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'npm install' // Or yarn install
+                bat 'npm install -g npm@6' // Or yarn install
                 bat 'npm run build' // Optional: If you have a build step
             }
         }
